@@ -1,5 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Recipe WebApp</h1>
+    <p>This is a simple recipe web app using vuejs, vuetify, and firebase</p>
   </div>
 </template>
