@@ -34,15 +34,13 @@
 <script>
 export default {
   data: () => ({
-    recipes: [
-      {id: '8jh287asd', title: 'Title 1', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Shlb-f3zX2Hkj5zeX4v-OFbvutN5HeNMBCTETmMTUJodjbu1', 
-      description: 'Description 1', category: 'category 1'},
-      {id: 'asd98adaa', title: 'Title 2', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Shlb-f3zX2Hkj5zeX4v-OFbvutN5HeNMBCTETmMTUJodjbu1', 
-      description: 'Description 2', category: 'category 2'},
-      {id: '987adaddf', title: 'Title 3', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Shlb-f3zX2Hkj5zeX4v-OFbvutN5HeNMBCTETmMTUJodjbu1', 
-      description: 'Description 3', category: 'category 3'},
-    ],
+
   }),
+  computed: {
+    recipes() {
+        return this.$store.getters.loadedRecipes
+    }
+  }
 }
 </script>
 

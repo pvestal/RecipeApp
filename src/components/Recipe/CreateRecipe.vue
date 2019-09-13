@@ -7,12 +7,12 @@
     </v-layout>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h4>Create a new Meetup</h4>
+        <h4>Add Recipe</h4>
       </v-flex>
     </v-layout>
     <v-layout row>
       <v-flex xs12>
-        <form @submit.prevent="onCreateMeetup">
+        <form @submit.prevent="onAddRecipe">
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
@@ -26,10 +26,10 @@
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
-                name="location"
-                label="Location"
-                id="location"
-                v-model="location"
+                name="category"
+                label="Category"
+                id="category"
+                v-model="category"
                 required></v-text-field>
             </v-flex>
           </v-layout>
@@ -57,7 +57,7 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <h4>Choose a Date & Time</h4>
+              <h4>Choose a Date</h4>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-2">
@@ -65,17 +65,17 @@
               <v-date-picker v-model="date"></v-date-picker>
             </v-flex>
           </v-layout>
-          <v-layout row>
+          <!-- <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-time-picker v-model="time" format="24hr"></v-time-picker>
             </v-flex>
-          </v-layout>
+          </v-layout> -->
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-btn
                 class="primary"
                 :disabled="!formIsValid && loading" :loading="loading"
-                type="submit">Create Meetup<span slot="loader" class="custom-loader">
+                type="submit">Add Recipe<span slot="loader" class="custom-loader">
                   <v-icon light>cached</v-icon>
                       </span></v-btn>
             </v-flex>
@@ -91,7 +91,7 @@
     data() {
       return {
         title: '',
-        location: '',
+        category: '',
         imageUrl: '',
         description: '',
         date: new Date().toISOString().substr(0, 10),
@@ -100,7 +100,7 @@
     },
     computed: {
       formIsValid() {
-        return this.title !== '' && this.location !== '' && this.imageUrl !== '' 
+        return this.title !== '' && this.category !== '' && this.imageUrl !== '' 
         && this.description !== ''
       },
       error() {
@@ -111,22 +111,22 @@
       }
     },
     methods: {
-      onCreateMeetup() {
+      onAddRecipe() {
         if(!this.formIsValid) {
           return 
         }
         if(!this.image) {
           return
         }
-        const meetupData = {
+        const recipeData = {
           title: this.title,
-          location: this.location,
+          category: this.category,
           image: this.image,
           description: this.description,
           date: this.date
         }
-        this.$store.dispatch('createMeetup', meetupData)
-        this.$router.push('/meetups')
+        this.$store.dispatch('addRecipe', recipeData)
+        this.$router.push('/recipes')
       },
       onDismissed() {
         this.$store.dispatch('CLEAR_ERROR')

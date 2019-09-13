@@ -44,9 +44,9 @@ export default {
         ]
         if (this.user) {
             navItems = [
-                { icon: 'list', title: 'View Recipes', link: 'recipes' },
-                { icon: 'note_add', title: 'Add Recipe', link: 'recipe/new' },
-                { icon: 'person', title: 'Profile', link: 'profile' }
+                { icon: 'list', title: 'View Recipes', link: '/recipes' },
+                { icon: 'note_add', title: 'Add Recipe', link: '/recipe/new' },
+                { icon: 'person', title: 'Profile', link: '/profile' }
             ]
         }
         return navItems

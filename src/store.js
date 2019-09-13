@@ -60,7 +60,7 @@ export const store = new Vuex.Store({
         commit('SET_LOADING', true)
       })
     },
-    createRecipe({commit, getters}, payload) {
+    addRecipe({commit, getters}, payload) {
       commit('SET_LOADING', true)
       //we could also just pass payload
       const recipe = {
@@ -69,7 +69,7 @@ export const store = new Vuex.Store({
         //imageUrl: payload.imageUrl,
         description: payload.description,
         date: payload.date,
-        creatorId: getters.user.id
+        creatorId: getters.user.uid
       }
       let imageUrl 
       let id

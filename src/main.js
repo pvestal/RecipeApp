@@ -24,5 +24,8 @@ new Vue({
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
+    //load recipes from firebase
+    this.$store.dispatch('loadedRecipes')
   }
 }).$mount('#app')
