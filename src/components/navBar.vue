@@ -33,14 +33,16 @@
           <v-list-item-action><v-icon>exit_to_app</v-icon></v-list-item-action>
           <v-list-item-content><v-list-item-title>Clicks++</v-list-item-title></v-list-item-content>
         </v-list-item>
+        <span>Clicks: {{counter}}</span> 
       </v-list>
     </v-navigation-drawer>
-
+    
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
+      <v-container fluid>
+        <v-layout>
           <v-flex>
-            <span>Clicks: {{counter}}</span>
+            
+            <recipes />
           </v-flex>
         </v-layout>
       </v-container>
@@ -54,7 +56,9 @@
 </template>
 
 <script>
+import recipes from './recipes'
 export default {
+  components: {recipes},
   data: () => ({
     drawer: false,
     left: false,
