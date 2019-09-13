@@ -1,7 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import SignIn from './views/SignIn.vue'
+import Home from '@/components/Home.vue'
+import Recipes from '@/components/Recipe/Recipes.vue'
+import CreateRecipe from '@/components/Recipe/CreateRecipe.vue'
+import Recipe from '@/components/Recipe/Recipe.vue'
+// import Profile from '@/components/User/Profile.vue'
+// import Signup from '@/components/User/Signup.vue'
+// import Signin from '@/components/User/Signin.vue'
+// import AuthGuard from './auth-guard.js'
+
 
 Vue.use(Router)
 
@@ -11,21 +18,43 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/recipes',
+      name: 'Recipes',
+      component: Recipes
     },
     {
-      path: '/SignIn',
-      name: 'SignIn',
-      component: SignIn
+      path: '/recipe/new',
+      name: 'CreateRecipe',
+      component: CreateRecipe,
+      // beforeEnter: AuthGuard
     },
+    {
+      path: '/recipes/:id',
+      props: true,
+      name: 'Recipe',
+      component: Recipe
+    },
+    // {
+    //   path: '/profile',
+    //   name: 'Profile',
+    //   component: Profile,
+    //   beforeEnter: AuthGuard
+    // },
+    // {
+    //   path: '/signup',
+    //   name: 'Signup',
+    //   component: Signup
+    // },
+    // {
+    //   path: '/signin',
+    //   name: 'Signin',
+    //   component: Signin
+    // }
+    
   ]
+  
 })

@@ -42,7 +42,7 @@
         <v-layout>
           <v-flex>
             
-            <recipes />
+            <Recipes />
           </v-flex>
         </v-layout>
       </v-container>
@@ -56,9 +56,9 @@
 </template>
 
 <script>
-import recipes from './recipes'
+import Recipes from './Recipe/Recipes'
 export default {
-  components: {recipes},
+  components: {Recipes},
   data: () => ({
     drawer: false,
     left: false,
