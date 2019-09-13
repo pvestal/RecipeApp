@@ -19,7 +19,7 @@
                 <v-card-actions>
                   <v-btn :to="'/recipes/' + recipe.id">
                     <v-icon left light>arrow_forward</v-icon>
-                  View recipe
+                  View Recipe
                   </v-btn>
                 </v-card-actions>
               </v-flex>
