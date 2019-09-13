@@ -2,9 +2,16 @@
   <v-app id="inspire">
     <v-app-bar app clipped-right color="blue-grey" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Toolbar</v-toolbar-title>
+        <router-link to="/" >
+          <v-toolbar-title>
+          Recipe WebApp
+        </v-toolbar-title>
+      </router-link>
+      
       <v-spacer></v-spacer>
-      <div class="text-center">
+      <span v-if="user" left>Welcome {{user.displayName}}</span>
+      <v-btn v-else @click.prevent="googleSignIn" class="primary">Google Sign In</v-btn>
+      <!-- <div class="text-center">
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn color="primary" dark v-on="on">
@@ -17,7 +24,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-    </div>
+    </div> -->
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app>
@@ -58,6 +65,23 @@ export default {
       {title: 'Sign Out', route: 'SignOut'},
     ],
   }),
+  methods: {
+      googleSignIn() {
+        this.$store.dispatch('googleSignIn')
+      },
+  },
+    computed: {
+      user() {
+        return this.$store.getters.user
+      },
+    },
+    // watch: {
+    //   user (value) {
+    //     if (value !== null && value !== undefined) {
+    //       this.$router.push('/profile')
+    //     }
+    //   }
+    // },
 }
 </script>
 
