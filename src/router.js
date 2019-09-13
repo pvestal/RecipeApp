@@ -4,10 +4,10 @@ import Home from '@/components/Home.vue'
 import Recipes from '@/components/Recipe/Recipes.vue'
 import CreateRecipe from '@/components/Recipe/CreateRecipe.vue'
 import Recipe from '@/components/Recipe/Recipe.vue'
-// import Profile from '@/components/User/Profile.vue'
+import Profile from './views/Profile'
 // import Signup from '@/components/User/Signup.vue'
 // import Signin from '@/components/User/Signin.vue'
-// import AuthGuard from './auth-guard.js'
+import AuthGuard from './auth-guard.js'
 
 
 Vue.use(Router)
@@ -38,12 +38,12 @@ export default new Router({
       name: 'Recipe',
       component: Recipe
     },
-    // {
-    //   path: '/profile',
-    //   name: 'Profile',
-    //   component: Profile,
-    //   beforeEnter: AuthGuard
-    // },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile,
+      beforeEnter: AuthGuard
+    },
     // {
     //   path: '/signup',
     //   name: 'Signup',
