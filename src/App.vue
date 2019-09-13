@@ -11,9 +11,10 @@
 
   <v-app-bar app color="blue" dark>
     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    <router-link to="/" >
-      <v-toolbar-title class="white--text">Recipe WebApp</v-toolbar-title>
-    </router-link>
+    <v-toolbar-title class="white--text">
+      <span class="white--text text-uppercase">Recipe</span>
+      <span class="grey--text text-uppercase">WebApp</span>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <span v-if="user">Welcome {{user.displayName}}</span>
     <v-btn v-else @click.prevent="googleSignIn" class="primary">Google Sign In</v-btn>
@@ -54,11 +55,13 @@ export default {
       },
       navItems() {
         let navItems = [
+            { icon: 'home', title: 'Home', link: '/' },
             { icon: 'face', title: 'Sign up', link: 'signup' },
             { icon: 'lock_open', title: 'Sign in', link: 'signin' }
         ]
         if (this.user) {
             navItems = [
+                { icon: 'home', title: 'Home', link: '/' },
                 { icon: 'list', title: 'View Recipes', link: '/recipes' },
                 { icon: 'note_add', title: 'Add Recipe', link: '/recipe/new' },
                 { icon: 'person', title: 'Profile', link: '/profile' }

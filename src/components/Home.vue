@@ -4,7 +4,7 @@
       <v-flex xs12 sm6 class="text-xs-center text-sm-right">
         <v-btn large router to="/recipes">Explore recipes</v-btn>
       </v-flex>
-      <v-flex xs12 sm6 class="text-xs-center text-sm-left">
+      <v-flex xs12 sm6 class="text-xs-center text-sm-left" v-if="user">
         <v-btn large router to="/recipe/new">Add recipe</v-btn>
       </v-flex>
     </v-layout>
@@ -39,6 +39,9 @@
 <script>
   export default {
     computed:{
+      user() {
+        return this.$store.getters.user
+      },
       recipes() {
         return this.$store.getters.loadedRecipes
         // return this.$store.getters.featuredRecipes
